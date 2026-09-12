@@ -41,6 +41,7 @@ class StudyTime
             // Return a new duration without changing either operand.
             return StudyTime(minutes + other.minutes);
         }
+        StudyTime& operator=(const StudyTime &other) = default;
         
 };
 
@@ -62,5 +63,13 @@ int main() {
 
     cout << "Total: " << total.getMinutes() << " minutes" << endl;
     cout << "Objects created: " << StudyTime::getObjectCount() << endl;
+    //1. Crea un objeto nuevo inicializado desde reading
+    StudyTime readingNew(67);
+    //2. Crea otro objeto nuevo con la duración por default.
+    StudyTime anotherObject;
+    //3. Asigna reading sobre el segundo objeto ya existente.
+    anotherObject = reading;
+    //4. Imprime el valor final de StudyTime::getObjectCount() y los minutos de ambos objetos.
+    cout << "Final object count: " << StudyTime::getObjectCount() << endl;
     return 0;
 }
