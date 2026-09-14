@@ -41,7 +41,7 @@ class StudyTime
             // Return a new duration without changing either operand.
             return StudyTime(minutes + other.minutes);
         }
-        StudyTime& operator=(const StudyTime &other) = default;
+        StudyTime& operator=(const StudyTime &other) = default; //operator= default to avoid compiler warning about missing operator=
 
         // ===== Resuelve estos TODO ahora (Parte E) =====
 
