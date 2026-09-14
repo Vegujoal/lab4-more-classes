@@ -42,34 +42,27 @@ class StudyTime
             return StudyTime(minutes + other.minutes);
         }
         StudyTime& operator=(const StudyTime &other) = default;
+
+        // ===== Resuelve estos TODO ahora (Parte E) =====
+
+        // TODO (Parte E): Define operator== so two StudyTime objects are equal
+        bool operator==(const StudyTime &other) const {
+            return minutes == other.minutes;
+        }
+        // when they represent the same number of minutes. The function must not modify either object and must return a bool.
         
 };
 
 int StudyTime::objectCount = 0;    // Define the single shared variable.
 
 int main() {
-    StudyTime reading(45);          // The first StudyTime object.
-
-    cout << "Reading: " << reading.getMinutes() << " minutes" << endl;
-    cout << "Objects created: " << StudyTime::getObjectCount() << endl;
-
-    // --- STEP 2 main() code goes here later ---
-        StudyTime readingCopy = reading;  // Create a new object from reading.
-    cout << "Copy: " << readingCopy.getMinutes() << " minutes" << endl;
-    cout << "Objects created: " << StudyTime::getObjectCount() << endl;
-    // --- STEP 3 main() code goes here later ---
-    StudyTime practice(30);
-    StudyTime total = reading + practice;  // Calls reading.operator+(practice).
-
-    cout << "Total: " << total.getMinutes() << " minutes" << endl;
-    cout << "Objects created: " << StudyTime::getObjectCount() << endl;
-    //1. Crea un objeto nuevo inicializado desde reading
-    StudyTime readingNew(67);
-    //2. Crea otro objeto nuevo con la duración por default.
-    StudyTime anotherObject;
-    //3. Asigna reading sobre el segundo objeto ya existente.
-    anotherObject = reading;
-    //4. Imprime el valor final de StudyTime::getObjectCount() y los minutos de ambos objetos.
-    cout << "Final object count: " << StudyTime::getObjectCount() << endl;
+    // Create two StudyTime objects with same durations and one with a different duration.
+    StudyTime study1(30);  // 30 minutes
+    StudyTime study2(30);  // 30 minutes
+    StudyTime study3(45);  // 45 minutes
+    // Imprime el resultado de al menos dos comparaciones, usando boolalpha para que la salida diga true o false
+    cout << "Comparing study1 and study2: " << boolalpha << (study1 == study2) << endl; 
+    cout << "Comparing study1 and study3: " << boolalpha << (study1 == study3) << endl; 
+    
     return 0;
 }
